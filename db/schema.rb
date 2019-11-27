@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_222057) do
+ActiveRecord::Schema.define(version: 2019_11_27_230337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tv_shows", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "TMDB_ID", null: false
+    t.string "overview", null: false
+    t.string "poster_path"
+    t.integer "vote_average"
+    t.integer "vote_count"
+    t.integer "genres", array: true
+    t.string "first_air_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
