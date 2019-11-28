@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_27_234135) do
+ActiveRecord::Schema.define(version: 2019_11_28_002454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,11 +28,6 @@ ActiveRecord::Schema.define(version: 2019_11_27_234135) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tv_shows_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "tv_show_id", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -40,4 +35,14 @@ ActiveRecord::Schema.define(version: 2019_11_27_234135) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "watchlists", force: :cascade do |t|
+    t.boolean "show_watched", default: false
+    t.bigint "user_id", null: false
+    t.bigint "tv_show_id", null: false
+    t.index ["tv_show_id"], name: "index_watchlists_on_tv_show_id"
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
+  add_foreign_key "watchlists", "tv_shows"
+  add_foreign_key "watchlists", "users"
 end

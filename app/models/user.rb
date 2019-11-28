@@ -1,4 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  has_and_belongs_to_many :tv_shows
+  has_many :watchlists
+  has_many :tv_shows, through: :watchlists
 end
