@@ -5,7 +5,7 @@ class Api::V1::TvShowsController < ApplicationController
   def index
     @tv_shows = TvShow.all
 
-    render json: @tv_shows
+    render json: @tv_shows, exclude: [:created_at]
   end
 
   # GET /tv_shows/1
