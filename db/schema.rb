@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(version: 2019_11_28_002454) do
     t.string "poster_path"
     t.integer "vote_average"
     t.integer "vote_count"
-    t.integer "genres", array: true
+    t.integer "genre_ids", array: true
     t.string "first_air_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "username"
-    t.string "password_digest"
+    t.string "username", null: false
+    t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

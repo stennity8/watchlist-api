@@ -7,7 +7,7 @@ class CreateTvShows < ActiveRecord::Migration[6.0]
       t.string :poster_path
       t.integer :vote_average
       t.integer :vote_count
-      t.integer :genres, array: true
+      t.integer :genre_ids, array: true
       t.string :first_air_date
 
       t.timestamps
