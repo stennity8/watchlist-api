@@ -44,13 +44,14 @@ class Api::V1::TvShowsController < ApplicationController
     if TvShow.find_by(TMDB_ID: params[:id])
       @tv_show = TvShow.find_by(TMDB_ID: params[:id])
       @user.tv_shows << @tv_show
-
+      
       render json: @tv_show
     else
       @tv_show = TvShow.new(tv_show_params)
       @tv_show.TMDB_ID = params[:id]
-
+      
       if @tv_show.save
+        @user.tv_shows << @tv_show
         render json: @tv_show
       else
         render json: {
