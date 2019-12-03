@@ -9,6 +9,19 @@ class Api::V1::WatchlistsController < ApplicationController
     render json: @user.watched_tvshows
   end
 
+  # Post request to change show to watched
+  def watched_tvshow
+    @watch = Watchlist.find_by(show_watched: false, user_id: params[:user_id], tv_show_id: params[:tv_show_id])
+
+    if @watch
+      @watch.update(show_watched: true)
+      render json: @watch
+    else
+      render json: {
+        error: "Something went wrong"
+      }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -17,7 +30,7 @@ class Api::V1::WatchlistsController < ApplicationController
     end
 
     # Only allow a trusted parameter "white list" through.
-    def user_params
+    def watchlist_params
       params.require(:watchlist).permit(:user_id, :tv_show_id)
     end
 end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get "current_user", to: "sessions#get_current_user"
       resources :tv_shows
       resources :users, only: [:show] do
+        post 'watched_tvshow/:tv_show_id', to: 'watchlists#watched_tvshow'
         post 'add_watchlist_tvshow', to: 'tv_shows#add_watchlist_tvshow'
         get 'unwatched_tvshows', to: 'watchlists#unwatched_tvshows'
         get 'watched_tvshows', to: 'watchlists#watched_tvshows'
