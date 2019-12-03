@@ -39,7 +39,6 @@ class Api::V1::TvShowsController < ApplicationController
   end
   
   def add_watchlist_tvshow
-    binding.pry
     @user = User.find(params[:user_id])
 
     if TvShow.find_by(TMDB_ID: params[:id])
