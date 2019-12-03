@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :tv_shows
       resources :users, only: [:show] do
         post 'watched_tvshow/:tv_show_id', to: 'watchlists#watched_tvshow'
+        delete 'remove_tvshow/:tv_show_id', to: 'watchlists#remove_tvshow'
         post 'add_watchlist_tvshow', to: 'tv_shows#add_watchlist_tvshow'
         get 'unwatched_tvshows', to: 'watchlists#unwatched_tvshows'
         get 'watched_tvshows', to: 'watchlists#watched_tvshows'
