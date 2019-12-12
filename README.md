@@ -5,11 +5,9 @@
 ### WatchList API handles the back-end for the WatchList application.  This WatchList application allows the users to sign up and create a watch list of TvShows.  Currently TvShows are limited to the top 20 most popular shows on The Movie DB.  
 
 
-GitHub for Front-end: `https://github.com/stennity8/watchlist-api.git`
+GitHub for Front-end: `https://github.com/stennity8/watchlist-client.git`
 
-Heroku link: COMING SOON
-
-Video Walk-through: COMING SOON
+Netlify Link: `https://watch-list.netlify.com/`
 
 ---
 

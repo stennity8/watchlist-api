@@ -10,7 +10,6 @@ User.destroy_all
 User.create(username: "chuck", password: "password")
 User.create(username: "tucker", password: "password")
 
-# TvShow.create(name: , TMDB_ID: , overview: , poster_path: , vote_average: , vote_count: , genres: [], first_air_date: )
 TvShow.create(name: "The Mandalorian", TMDB_ID: 82856, overview: "Set after the fall of the Empire and before the emergence of the First Order, we follow the travails of a lone gunfighter in the outer reaches of the galaxy far from the authority of the New Republic.", poster_path: "/BbNvKCuEF4SRzFXR16aK6ISFtR.jpg", vote_average: 7.6, vote_count: 124, genre_ids: [10759, 10765], first_air_date: "2019-11-12")
 
 TvShow.create(name: "Rick and Morty", TMDB_ID: 60625, overview: "Rick is a mentally-unbalanced but scientifically-gifted old man who has recently reconnected with his family. He spends most of his time involving his young grandson Morty in dangerous, outlandish adventures throughout space and alternate universes. Compounded with Morty's already unstable family life, these events cause Morty much distress at home and school.", poster_path: "/qJdfO3ahgAMf2rcmhoqngjBBZW1.jpg", vote_average: 8.6, vote_count: 1522, genre_ids: [16,35,10759,10765], first_air_date: "2013-12-02")
