@@ -39,10 +39,16 @@ class Api::V1::TvShowsController < ApplicationController
   end
   
   def add_watchlist_tvshow
+    # binding.pry
     @user = User.find(params[:user_id])
 
     if TvShow.find_by(TMDB_ID: params[:id])
       @tv_show = TvShow.find_by(TMDB_ID: params[:id])
+      @user.tv_shows << @tv_show
+      
+      render json: @tv_show
+    elsif TvShow.find_by(TMDB_ID: params[:TMDB_ID])
+      @tv_show = TvShow.find_by(TMDB_ID: params[:TMDB_ID])
       @user.tv_shows << @tv_show
       
       render json: @tv_show

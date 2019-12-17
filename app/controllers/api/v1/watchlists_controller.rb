@@ -6,7 +6,7 @@ class Api::V1::WatchlistsController < ApplicationController
   end
 
   def watched_tvshows
-    render json: @user.watched_tvshows
+    render json: @user.watched_tvshows.uniq
   end
 
   # POST request to change show to watched
